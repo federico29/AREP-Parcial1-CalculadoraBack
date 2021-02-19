@@ -9,10 +9,10 @@ public class App {
     public static void main( String[] args ){
         port(getPort());
         get("/", (req, res) -> {
-            Double number = Double.parseDouble(req.queryParams("value"));
-            String function = req.queryParams("operation");
+            String funcion = req.queryParams("funcion");
+            Double valor = Double.parseDouble(req.queryParams("valor"));
             JSONObject json = new JSONObject();
-            json.put("/resultado/", Calculadora.calcular(function, number));
+            json.put("/resultado/", Calculadora.calcular(funcion, valor));
             return json;
         });
     }
